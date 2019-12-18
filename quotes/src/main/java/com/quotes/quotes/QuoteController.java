@@ -47,12 +47,12 @@ public class QuoteController {
         return repo.save(current);
     }
 
-    @ApiOperation(value = "Get an quote by Id")
+    @ApiOperation(value = "Get a quote by Id")
     @RequestMapping(method = RequestMethod.GET, value = "/{quoteId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Optional<Quote> get(@ApiParam(value = "Quote id from which quote object will retrieve",
-            required = true) @PathVariable String quote) {
+            required = true) @PathVariable String quoteId) {
 
-        return repo.findById(quote);
+        return repo.findById(quoteId);
     }
 
     @ApiOperation(value = "View a list of available quote", response = List.class)
@@ -68,12 +68,12 @@ public class QuoteController {
     }
     
     @ApiOperation(value = "Update an quote by Id")
-    @RequestMapping(method = RequestMethod.PUT, value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(method = RequestMethod.PUT, value = "/{quoteId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Quote update(@ApiParam(value = "quote id from which quote object will retrieve",
-            required = true) @PathVariable String id, 
+            required = true) @PathVariable String quoteId, 
             @ApiParam(value = "quote object store in database table", required = true) 
             @RequestBody Quote quote) {
-        Optional<Quote> e = repo.findById(id);
+        Optional<Quote> e = repo.findById(quoteId);
         if(e.isPresent()){
             Quote currentQuote = e.get();
             currentQuote.setText(quote.getText());
@@ -84,10 +84,10 @@ public class QuoteController {
     }
     
     @ApiOperation(value = "Delete an quote")
-    @RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
+    @RequestMapping(method = RequestMethod.DELETE, value = "/{quoteId}")
     public void delete(@ApiParam(value = "quote id store in database table", required = true) 
-    @PathVariable String id) {        
-        repo.deleteById(id);
+    @PathVariable String quoteId) {        
+        repo.deleteById(quoteId);
     }
     
 }

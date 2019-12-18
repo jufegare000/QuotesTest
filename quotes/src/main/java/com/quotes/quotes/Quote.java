@@ -1,4 +1,3 @@
-
 package com.quotes.quotes;
 
 import io.swagger.annotations.ApiModel;
@@ -12,6 +11,7 @@ import lombok.Setter;
 import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
 @Document(collection = "quotes")
 @Data
 @NoArgsConstructor
@@ -21,13 +21,15 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @ToString
 @ApiModel(description = "All details about the quotes. ")
 public class Quote {
-@ApiModelProperty(notes = "The database generated quote ID")
-@Id
-private String id;
-@ApiModelProperty(notes = "quote text")
-private @NonNull String text;
-@ApiModelProperty(notes = "image url")
-private @NonNull String url;
+
+    @ApiModelProperty(notes = "The database generated quote ID")
+    @Id
+    private String id;
+    @ApiModelProperty(notes = "quote text")
+    private @NonNull
+    String text;
+    @ApiModelProperty(notes = "image url")
+    private @NonNull
+    String url;
 
 }
-

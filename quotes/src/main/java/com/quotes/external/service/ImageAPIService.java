@@ -30,7 +30,20 @@ public class ImageAPIService {
             
              String rpta = response.body().string();
              System.out.println(rpta);
+             System.out.println(response.body());
              Utils.imagesJsonToList(rpta);
+             System.out.println(response.body());
+             int linf = rpta.indexOf("\"raw=\"");
+             
+             int lims;
+             String val = rpta.substring(linf);
+             String val1 = "";
+              
+             String val2 = "";
+             linf = rpta.indexOf("raw=");
+             String val3 = "";
+             String val4 = "";
+             
              return rpta;
         } catch (Exception e) {
              return e.getMessage();
