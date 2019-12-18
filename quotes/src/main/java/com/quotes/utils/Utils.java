@@ -6,6 +6,7 @@
 package com.quotes.utils;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.quotes.model.MQuotesAPI;
 import java.util.Arrays;
 import java.util.List;
@@ -21,12 +22,12 @@ public class Utils {
         List<MQuotesAPI> quoteList = Arrays.asList(arl);
         return quoteList;
     }
-/*
+
     public static void imagesJsonToList(String rpta) {
     
         GsonBuilder builder = new GsonBuilder();
         Object o = builder.create().fromJson(rpta, Object.class);
         
         System.out.println(o);
-    }*/
+    }
 }

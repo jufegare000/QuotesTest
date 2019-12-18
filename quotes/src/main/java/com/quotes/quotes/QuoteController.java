@@ -5,11 +5,13 @@
  */
 package com.quotes.quotes;
 
+import com.quotes.bl.QuotesBL;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import java.io.IOException;
 import java.util.List;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,9 +39,12 @@ public class QuoteController {
     @ApiOperation(value = "Add an quote")
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public Quote create(@ApiParam(value = "Quote object store in database table", required = true) 
-    @RequestBody Quote quote) {
-
-        return repo.save(quote);
+    @RequestBody Quote quote) throws IOException {
+        //
+        Quote current;
+        current = new Quote();
+        current = QuotesBL.getInstance().createQuote();
+        return repo.save(current);
     }
 
     @ApiOperation(value = "Get an quote by Id")
