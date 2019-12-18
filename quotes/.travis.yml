@@ -1,0 +1,12 @@
+language: java
+jdk:
+- openjdk9
+services:
+- mongodb
+before_install:
+- chmod +x mvnw
+deploy:
+  provider: heroku
+  api_key:
+    secure: tcx5abdWpQSF0XPfi36SeMdgGyGxLKJKKxZlPhjEp8r0aU2okemNwZ8hCzGzdqL/AoacTb01muP3zJb6sHuF92XOanWGAR9WezQv1LTGn141rY19uqsmzHB4IbZS24jiT8B0nfyMIfqs21HVvoN7fJC35tmU0Uh0R6R6lFQl/gYiiGgMn5BoVpdpBxr52SYgaLIi5X5JPt193gQl0cWNCxSRkxxmRFnLPIPkOsRleEq7NDnJx0zqYrnXllbrHVx0MpfpTn5cnyILjOg9rxfOZgN2jHII4RDK0R/xUYUufp1bX7OyGZH265DklP7XW/E70ve/S8/WzpJIMqLVYFdYOAsf+VBGHWXmf8o03S5bjCdrWgyMODPcIVOdMGASBT5jrC/tlSa+t4+asP2hV3agZQXREVfEZEchOtIfSAZLO4XDKDsSkqMvS+1Y40qQEmNXSZ6nYud+K+jaj8TJAIkO1XAtbjPthWOduR+Ga/lDddZ2e9CCN+j8M2S7T7KHAX/qBZkxpxKmQ8IcvmW7ywKrIbOzy5szC9X17ip8jLBXVDoKecWJl4JU3bP81305cgNz9GAfUbezuF8sKOqbZIoIxlZ7Mk03RSTdnnF6eYnrgJs6enpyYTaR8aWrG8jL5BwSF2tSliBE3fV5b/LKHA3WTRDb+6paOVaTbBfpkltF0NU=
+  app: tranquil-scrubland-80847
