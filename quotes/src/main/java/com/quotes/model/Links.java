@@ -20,9 +20,9 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class MImagesAPI {
-    String total;
-    String total_pages;
-    Results[] results;
-    
+public class Links {
+    String self;
+    String html;
+    String download;
+    String download_location;
 }

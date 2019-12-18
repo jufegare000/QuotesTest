@@ -5,6 +5,7 @@
  */
 package com.quotes.external.service;
 
+import com.quotes.model.Results;
 import com.quotes.utils.Utils;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
@@ -29,24 +30,12 @@ public class ImageAPIService {
             
             
              String rpta = response.body().string();
-             System.out.println(rpta);
-             System.out.println(response.body());
-             Utils.imagesJsonToList(rpta);
-             System.out.println(response.body());
-             int linf = rpta.indexOf("\"raw=\"");
-             
-             int lims;
-             String val = rpta.substring(linf);
-             String val1 = "";
-              
-             String val2 = "";
-             linf = rpta.indexOf("raw=");
-             String val3 = "";
-             String val4 = "";
-             
-             return rpta;
+             String url;
+             Results rs = Utils.imagesJsonToList(rpta);
+             return rs.getUrls().getFull();
         } catch (Exception e) {
-             return e.getMessage();
+             System.out.println(e.getMessage());
+             return null;
         }
     }
 }

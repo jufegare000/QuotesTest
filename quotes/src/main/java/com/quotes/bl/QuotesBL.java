@@ -32,13 +32,11 @@ public class QuotesBL {
          MQuotesAPI qapi = new MQuotesAPI();
          QuotesAPIService srv = new QuotesAPIService();
          ImageAPIService isrv = new ImageAPIService();
-         
-         
          qapi = srv.getQuote().get(0);
          String url = isrv.getURL(qapi.getCategory());
          Quote current = new Quote();
          current.setText(qapi.getQuote());
-         
+         current.setUrl(url);
          return current;
      }
     

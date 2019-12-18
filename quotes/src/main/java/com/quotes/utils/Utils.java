@@ -7,7 +7,11 @@ package com.quotes.utils;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.internal.LinkedTreeMap;
+import com.quotes.model.MImagesAPI;
 import com.quotes.model.MQuotesAPI;
+import com.quotes.model.Results;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -16,6 +20,7 @@ import java.util.List;
  * @author jufeg
  */
 public class Utils {
+
     public static List<MQuotesAPI> quotesJsonToList(String rpta) {
         Gson gson = new Gson();
         MQuotesAPI[] arl = gson.fromJson(rpta, MQuotesAPI[].class);
@@ -23,11 +28,16 @@ public class Utils {
         return quoteList;
     }
 
-    public static void imagesJsonToList(String rpta) {
-    
+    public static Results imagesJsonToList(String rpta) {
+        //Batuzai the machete master
         GsonBuilder builder = new GsonBuilder();
         Object o = builder.create().fromJson(rpta, Object.class);
-        
-        System.out.println(o);
+        List<Object> d = new ArrayList<Object>();
+        d = (List<Object>) o;
+        LinkedTreeMap ax = (LinkedTreeMap) d.get(0);
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String jsonString = gson.toJson(ax);
+        Results rsx = builder.create().fromJson(jsonString, Results.class);
+        return rsx;
     }
 }
